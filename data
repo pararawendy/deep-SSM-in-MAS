@@ -47,18 +47,21 @@ for eps in range(num_seq):
             coord_y[eps,t] = actual_speed[eps,t] * math.sin(actual_direct[eps,t])
             
         else :
-           if act_speed[eps,t] == 1:
-               if np.abs(coord_x[eps,t-1]) >= np.abs(coord_y[eps,t-1]):
+            if np.abs(coord_x[eps,t-1]) >= np.abs(coord_y[eps,t-1]):
                    act_direct[eps,t] = math.pi/4
-               else : act_direct[eps,t] = -math.pi/4
-           else :
-               act_direct[eps,t] = math.pi/4
+            else : act_direct[eps,t] = -math.pi/4
                
-           actual_speed[eps,t] = actual_speed[eps,t-1] + act_speed[eps,t]
-           actual_direct[eps,t] = actual_direct[eps,t-1] + act_direct[eps,t]
+            actual_speed[eps,t] = actual_speed[eps,t-1] + act_speed[eps,t]
+            actual_direct[eps,t] = actual_direct[eps,t-1] + act_direct[eps,t]
            
-           coord_x[eps,t] = coord_x[eps,t-1] + actual_speed[eps,t] * math.cos(actual_direct[eps,t])
-           coord_y[eps,t] = coord_y[eps,t-1] + actual_speed[eps,t] * math.sin(actual_direct[eps,t])
+            coord_x[eps,t] = coord_x[eps,t-1] + actual_speed[eps,t] * math.cos(actual_direct[eps,t])
+            coord_y[eps,t] = coord_y[eps,t-1] + actual_speed[eps,t] * math.sin(actual_direct[eps,t])
+               
+            actual_speed[eps,t] = actual_speed[eps,t-1] + act_speed[eps,t]
+            actual_direct[eps,t] = actual_direct[eps,t-1] + act_direct[eps,t]
+           
+            coord_x[eps,t] = coord_x[eps,t-1] + actual_speed[eps,t] * math.cos(actual_direct[eps,t])
+            coord_y[eps,t] = coord_y[eps,t-1] + actual_speed[eps,t] * math.sin(actual_direct[eps,t])
 
 
 '''
@@ -93,21 +96,17 @@ for eps in range(num_seq):
             coord_yw[eps,t] = actual_speedw[eps,t] * math.sin(actual_directw[eps,t]) + np.random.normal(0,0.1)
             
         else :
-            #determine act_directw
-           if act_speedw[eps,t] == 1:
-               if np.abs(coord_xw[eps,t-1]) >= np.abs(coord_yw[eps,t-1]):
-                   act_directw[eps,t] = math.pi/4
-               else : act_directw[eps,t] = -math.pi/4
-           else :
-               act_directw[eps,t] = math.pi/4  
+            if np.abs(coord_x[eps,t-1]) >= np.abs(coord_y[eps,t-1]):
+                   act_direct[eps,t] = math.pi/4
+            else : act_direct[eps,t] = -math.pi/4
            
-           delta_direct[eps,t] = act_directw[eps,t] + np.random.normal(0,math.pi/60)
+            delta_direct[eps,t] = act_directw[eps,t] + np.random.normal(0,math.pi/60)
            
-           actual_speedw[eps,t] = actual_speedw[eps,t-1] + delta_speed[eps,t]
-           actual_directw[eps,t] = actual_directw[eps,t-1] + delta_direct[eps,t]
+            actual_speedw[eps,t] = actual_speedw[eps,t-1] + delta_speed[eps,t]
+            actual_directw[eps,t] = actual_directw[eps,t-1] + delta_direct[eps,t]
            
-           coord_xw[eps,t] = coord_xw[eps,t-1] + actual_speedw[eps,t] * math.cos(actual_directw[eps,t]) + np.random.normal(0,0.1)
-           coord_yw[eps,t] = coord_yw[eps,t-1] + actual_speedw[eps,t] * math.sin(actual_directw[eps,t]) + np.random.normal(0,0.1)
+            coord_xw[eps,t] = coord_xw[eps,t-1] + actual_speedw[eps,t] * math.cos(actual_directw[eps,t]) + np.random.normal(0,0.1)
+            coord_yw[eps,t] = coord_yw[eps,t-1] + actual_speedw[eps,t] * math.sin(actual_directw[eps,t]) + np.random.normal(0,0.1)
 
         
 '''SAVING THE DATA'''
@@ -123,7 +122,7 @@ coord_y = coord_y.flatten()
 master = np.vstack((act_speed,act_direct,coord_x,coord_y,actual_speed,actual_direct)).T
 master.shape
 
-np.savetxt('C:\\fix_model\\model_fitting\\TRAINDAT.csv',master,delimiter = ',')
+np.savetxt('C:\\deep_SSM\\TRAINDAT.csv',master,delimiter = ',')
 
 
 #stochastic system dynamics    
@@ -136,4 +135,4 @@ coord_yw = coord_yw.flatten()
 
 masterw = np.vstack((act_speedw,act_directw,coord_xw,coord_yw,actual_speedw,actual_directw)).T
 
-np.savetxt('C:\\fix_model\\model_fitting\\TRAINDATW.csv',masterw,delimiter = ',')
+np.savetxt('C:\\deep_SSM\\TRAINDATW.csv',masterw,delimiter = ',')
