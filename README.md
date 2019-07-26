@@ -1,5 +1,5 @@
-# deep-SSM-in-MAS
-Code implementation of deep state-space models (SSM) in multi-agent-systems (MAS) as proposed by Indarjo's master thesis (2019)
+# Deep State-Space Models in Multi-Agent Systems
+Code implementation of deep state-space models (SSM) in multi-agent-systems (MAS) as proposed by [Indarjo's master thesis](https://www.universiteitleiden.nl/binaries/content/assets/science/mi/scripties/master/2018-2019/master-thesis-fin---pararawendy.pdf) (2019)
 
 Outline:
 1. Explain about the method, incl. how to use the method
