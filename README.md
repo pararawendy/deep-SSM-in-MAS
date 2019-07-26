@@ -6,3 +6,4 @@ Outline:
 2. Method with covariance structure
 3. method implementation (explain the toy problem), note: modif toy problem in phase 2 (ground truth of 2nd agent)
 
+## Problem assumptions
