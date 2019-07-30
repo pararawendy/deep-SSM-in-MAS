@@ -50,7 +50,15 @@ The Bayesian net of Phase 1 is given below.
 After we finish training all neural networks in Phase 1, we are ready to work out Phase 2. In this phase, the ingredients are the sequence of environment states ![equation](https://latex.codecogs.com/gif.latex?s_{1:T}=[s_1,...,s_{T}]) and other agents' actions ![equation](https://latex.codecogs.com/gif.latex?a_{1:T}=[a_1,...,a_{T}]). Note that we can gather the sequence ![equation](https://latex.codecogs.com/gif.latex?s_{1:T}) by utilizing the inference net from Phase 1. We want to fit ![equation](https://latex.codecogs.com/gif.latex?p(a_{1:T}|s_{1:T})). Similar to Phase 1, we follow variational inference principle to proceed.
 
 The generative graphical model in this Phase 2 is the following.
+
 ![equation](https://latex.codecogs.com/gif.latex?%5Cbegin%7Balign%7D%20z_0%20%26%5Csim%20p_0%28z_0%29%20%3D%20%5Cmathcal%7BN%7D%28z_0%3B0%2CI%29%5Cnonumber%5C%5C%20z_t%20%26%5Csim%20p_%5Cgamma%28z_t%7Cz_%7Bt-1%7D%2Cs_%7Bt%7D%29%20%3D%20%5Cmathcal%7BN%7D%28z_t%3B%7B%7D_%7B%5Cgamma%7D%5Cmu_t%2C%5Ctext%7Bdiag%7D%28%7B%7D_%7B%5Cgamma%7D%5Csigma_t%5E2%29%29%5Cnonumber%5C%5C%20a_%7Bt&plus;1%7D%20%26%5Csim%20p_%5Ctheta%28a_%7Bt&plus;1%7D%7Cz_t%29%20%3D%20%5Ctext%7BCategorical%7D%28a_%7Bt&plus;1%7D%3B%7B%7D_%7B%5Ctheta%7D%5Ceta_%7Bt&plus;1%7D%29%5Cnonumber%20%5Cend%7Balign%7D)
+
+Note that in this phase we have one categorical distribution to model the other agents' actions. As in Phase 1, we parameterize each distribution ![equation](https://latex.codecogs.com/gif.latex?p_\theta), ![equation](https://latex.codecogs.com/gif.latex?p_\gamma) and ![equation](https://latex.codecogs.com/gif.latex?q_\phi) by neural networks, such that ![equation](https://latex.codecogs.com/gif.latex?\theta), ![equation](https://latex.codecogs.com/gif.latex?\gamma) and ![equation](https://latex.codecogs.com/gif.latex?\phi) are the parameters of neural networks ![equation](https://latex.codecogs.com/gif.latex?p_\theta), ![equation](https://latex.codecogs.com/gif.latex?p_\gamma) and ![equation](https://latex.codecogs.com/gif.latex?q_\phi) respectively.
+
+Training goes very similar as Phase 1, i.e. we want to maximize the ELBO of the target joint distribution. The Bayesian net of Phase 2 is given below.
+![Screenshot](phase2.png)
+
+
 
 
 
