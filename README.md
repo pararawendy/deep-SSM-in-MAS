@@ -15,6 +15,12 @@ We consider multi-agent systems (MAS) that consist of a controllable agent and s
 - Other agents' actions ![equation](https://latex.codecogs.com/gif.latex?a_t) also come from a noisy non-linear mapping of another true latent state representation ![equation](https://latex.codecogs.com/gif.latex?z_t).
 - The true latent state representation ![equation](https://latex.codecogs.com/gif.latex?z_t) also evolves over time and gets affected by the environment state ![equation](https://latex.codecogs.com/gif.latex?s_t), which can be seen as the *summary* of all current observation and previous actions (both controllable agent's and other agents').
 
+We propose a formulation of deep state-space models (DSSMs) over the considered systems. There are two main goals of this formulation. First is to model the environment dynamics. That is, the change on the environment as a result of all actions taken by the involved agents in the systems. Secondly, to predict the other agents' actions to be taken utilizing some results from the first modelling phase.
+
+## The models
+The key idea of the models is to perform two phases of DSSMs, each for modelling one of the two goals mentioned above. There are three sequences available (observed) in this problem: the observations ![equation](https://latex.codecogs.com/gif.latex?o_{1:T}=[o_1,...,o_T]), our controllable agent's actions ![equation](https://latex.codecogs.com/gif.latex?u_{1:T}=[u_1,...,u_{T}]) and other agents' actions ![equation](https://latex.codecogs.com/gif.latex?a_{1:T}=[a_1,...,a_{T}]). For convenience, we will denote the concatenation of the two agents' actions as ![equation](https://latex.codecogs.com/gif.latex?c_t=[u_t,a_t]).
+
+
 
 
 
