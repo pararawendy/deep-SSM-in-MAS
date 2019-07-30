@@ -8,4 +8,4 @@ Outline:
 
 ## Problem assumptions
 We consider multi-agent systems (MAS) that consist of a controllable agent and some other agents (can be either collaborators or opponents, or both) which interact with each other. The general assumptions on the systems are as follows:
-- Observation in each time step, denoted by https://latex.codecogs.com/gif.latex?o_t is a noisy non-linear mapping from a true environment state https://latex.codecogs.com/gif.latex?s_t, which is unobserved (latent).
+- Observation in each time step, denoted by [!equation](https://latex.codecogs.com/gif.latex?o_t) is a noisy non-linear mapping from a true environment state [!equation](https://latex.codecogs.com/gif.latex?s_t), which is unobserved (latent).
