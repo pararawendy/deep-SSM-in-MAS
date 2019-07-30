@@ -35,3 +35,7 @@ Therefore, the objective function we want to optimize (maximize) in Phase 1 is t
 
 ![equation](https://latex.codecogs.com/gif.latex?%5Ctext%7BELBO%7D%20%3D%20%5Cmathbb%7BE%7D_%7Bq_%5Cphi%28s_%7B1%3AT%7D%7Co_%7B1%3AT%7D%2Cc_%7B1%3AT%7D%29%7D%20%5Cleft%5B%20%5Csum_%7Bt%3D1%7D%5ET%20%5Clog%20%5Cfrac%7Bp_%5Ctheta%28o_t%7Cs_t%29%20p_%5Cgamma%28s_t%7Cs_%7Bt-1%7D%2Cc_t%29%7D%7Bq_%5Cphi%28s_t%7Cs_%7Bt-1%7D%2Cc_t%2Co_t%29%7D%5Cright%5D%20%5Cnonumber)
 
+We assume all unobserved latent variables are multivariate Gaussian distributions, while the distribution of the observation depends on the data specification. It can be modelled as Gaussian (real-valued), binary, or categorical distribution. Concluding this construction, an example of graphical form of the generative model in this phase is given in the following.
+
+![equation](https://latex.codecogs.com/gif.latex?%5Cbegin%7Balign%7D%20s_0%20%26%5Csim%20p_0%28s_0%29%20%3D%20%5Cmathcal%7BN%7D%28s_0%3B0%2CI%29%5Cnonumber%5C%5C%20s_t%20%26%5Csim%20p_%5Cgamma%28s_t%7Cs_%7Bt-1%7D%2Cc_%7Bt-1%7D%29%20%3D%20%5Cmathcal%7BN%7D%28s_t%3B%20%7B%7D_%7B%5Cgamma%7D%5Cmu_t%2C%5Ctext%7Bdiag%7D%28%7B%7D_%7B%5Cgamma%7D%5Csigma_t%5E2%29%29%5Cnonumber%5C%5C%20o_t%20%26%5Csim%20p_%5Ctheta%28o_t%7Cs_t%29%20%3D%20%5Cmathcal%7BN%7D%28o_t%3B%7B%7D_%7B%5Ctheta%7D%5Cmu_t%2C%5Ctext%7Bdiag%7D%28%7B%7D_%7B%5Ctheta%7D%5Csigma_t%5E2%29%29%5Cnonumber%20%5Cend%7Balign%7D)
+
