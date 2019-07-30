@@ -39,6 +39,10 @@ We assume all unobserved latent variables are multivariate Gaussian distribution
 
 ![equation](https://latex.codecogs.com/gif.latex?%5Cbegin%7Balign%7D%20s_0%20%26%5Csim%20p_0%28s_0%29%20%3D%20%5Cmathcal%7BN%7D%28s_0%3B0%2CI%29%5Cnonumber%5C%5C%20s_t%20%26%5Csim%20p_%5Cgamma%28s_t%7Cs_%7Bt-1%7D%2Cc_%7Bt-1%7D%29%20%3D%20%5Cmathcal%7BN%7D%28s_t%3B%20%7B%7D_%7B%5Cgamma%7D%5Cmu_t%2C%5Ctext%7Bdiag%7D%28%7B%7D_%7B%5Cgamma%7D%5Csigma_t%5E2%29%29%5Cnonumber%5C%5C%20o_t%20%26%5Csim%20p_%5Ctheta%28o_t%7Cs_t%29%20%3D%20%5Cmathcal%7BN%7D%28o_t%3B%7B%7D_%7B%5Ctheta%7D%5Cmu_t%2C%5Ctext%7Bdiag%7D%28%7B%7D_%7B%5Ctheta%7D%5Csigma_t%5E2%29%29%5Cnonumber%20%5Cend%7Balign%7D)
 
+We parameterize each distribution ![equation](https://latex.codecogs.com/gif.latex?p_\theta), ![equation](https://latex.codecogs.com/gif.latex?p_\gamma) and ![equation](https://latex.codecogs.com/gif.latex?q_\phi) by neural networks, such that ![equation](https://latex.codecogs.com/gif.latex?\theta), ![equation](https://latex.codecogs.com/gif.latex?\gamma) and ![equation](https://latex.codecogs.com/gif.latex?\phi) are the parameters of neural networks ![equation](https://latex.codecogs.com/gif.latex?p_\theta), ![equation](https://latex.codecogs.com/gif.latex?p_\gamma) and ![equation](https://latex.codecogs.com/gif.latex?q_\phi) respectively. These neural networks are called \textit{emission net, transition net}, and \textit{inference net}, respectively. Note that, with parameterization by neural networks we mean that the neural networks emit the parameters of the distribution, e.g. the mean and variance values (hence the output layer consists of two blocks in this case) for Gaussian distribution.
+
 The Bayesian net of Phase 1 is given below.
 ![Screenshot](phase1.png)
+
+
 
