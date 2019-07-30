@@ -29,6 +29,6 @@ In this phase, the goal is originally to fit a generative model for the sequence
 
 Along with this, we subsequently introduce a variational distribution ![equation](https://latex.codecogs.com/gif.latex?q_\phi(s_{1:T}|o_{1:T},c_{1:T})) to approximate the true (but intractable) posterior ![equation](https://latex.codecogs.com/gif.latex?p_\gamma(s_{1:T}|o_{1:T},c_{1:T})). We define the factorization of this variational distribution as
 
-https://latex.codecogs.com/gif.latex?%5Cbegin%7Bequation%7D%20q_%5Cphi%28s_%7B1%3AT%7D%7Co_%7B1%3AT%7D%2Cc_%7B1%3AT%7D%29%20%3D%20%5Cprod_%7Bt%3D1%7D%5ET%20q_%5Cphi%28s_t%7Cs_%7Bt-1%7D%2Cc_t%2Co_t%29%20%5Clabel%7Bfiltering_phase1%7D%5Cnonumber%20%5Cend%7Bequation%7D
+![equation](https://latex.codecogs.com/gif.latex?%5Cbegin%7Bequation%7D%20q_%5Cphi%28s_%7B1%3AT%7D%7Co_%7B1%3AT%7D%2Cc_%7B1%3AT%7D%29%20%3D%20%5Cprod_%7Bt%3D1%7D%5ET%20q_%5Cphi%28s_t%7Cs_%7Bt-1%7D%2Cc_t%2Co_t%29%20%5Clabel%7Bfiltering_phase1%7D%5Cnonumber%20%5Cend%7Bequation%7D)
 
 
