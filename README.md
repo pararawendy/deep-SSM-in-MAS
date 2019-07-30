@@ -31,7 +31,7 @@ Along with this, we subsequently introduce a variational distribution ![equation
 
 ![equation](https://latex.codecogs.com/gif.latex?q_%5Cphi%28s_%7B1%3AT%7D%7Co_%7B1%3AT%7D%2Cc_%7B1%3AT%7D%29%3D%5Cprod_%7Bt%3D1%7D%5ET%20q_%5Cphi%28s_t%7Cs_%7Bt-1%7D%2Cc_t%2Co_t%29)
 
-Therefore, the objective function we want to optimize (maximize) in Phase 1 is the following ELBO (Evidence Lower BOund), which is the simplification of the following expression
+Therefore, the objective function we want to optimize (maximize) in Phase 1 is the following ELBO (Evidence Lower BOund) of ![equation](https://latex.codecogs.com/gif.latex?p(o_{1:T}|c_{1:T})), which is the simplification of the following expression
 
 ![equation](https://latex.codecogs.com/gif.latex?%5Ctext%7BELBO%7D%20%3D%20%5Cmathbb%7BE%7D_%7Bq_%5Cphi%28s_%7B1%3AT%7D%7Co_%7B1%3AT%7D%2Cc_%7B1%3AT%7D%29%7D%20%5Cleft%5B%20%5Csum_%7Bt%3D1%7D%5ET%20%5Clog%20%5Cfrac%7Bp_%5Ctheta%28o_t%7Cs_t%29%20p_%5Cgamma%28s_t%7Cs_%7Bt-1%7D%2Cc_t%29%7D%7Bq_%5Cphi%28s_t%7Cs_%7Bt-1%7D%2Cc_t%2Co_t%29%7D%5Cright%5D%20%5Cnonumber)
 
