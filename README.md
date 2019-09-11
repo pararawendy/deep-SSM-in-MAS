@@ -58,6 +58,13 @@ Note that in this phase we have one categorical distribution to model the other 
 Training goes very similar as Phase 1, i.e. we want to maximize the ELBO of the target joint distribution. The Bayesian net of Phase 2 is given below.
 ![Screenshot](phase2.png)
 
+## Model Training
+
+The goal when training the models (Phase 1 and 2) are is to maximize their corresponding ELBO. By the help of parameterization trick (Kingma and Welling, 2014), we can make the ELBO of a trajectory (sequence) as a summation of T terms (T is the trajectory length). Please refer to the thesis for clarification. Eventually, we can train Phase 1 model using the following algorithm.
+
+![Screenshot](algor1.png)
+
+Training Phase 2 goes quite similar to Phase 1 and we omit the details for brevity.
 
 
 
