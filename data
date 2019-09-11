@@ -30,7 +30,7 @@ actual_direct = np.zeros((num_seq,seq_length), dtype=float)
 for eps in range(num_seq):
     for t in range(seq_length):
         rand_1 = np.random.rand()
-        if rand_1 <= 0.5:
+        if rand_1 <= 0.5:  #the first agent's policy (speed) is balanced Bernoulli
             act_speed[eps,t] = 1
         else : act_speed[eps,t] = -1
         
@@ -66,6 +66,14 @@ for eps in range(num_seq):
 
 '''
 STOCHASTIC SYSTEM DYNAMICS
+
+There are four noises considered:
+1. Deviation in speed action
+2. Deviation in direction action
+3. Slip on x-axis direction
+4. Slip on y-axis direction
+
+All noises are set i.i.d Normal(0,0.01), except for noise number 2--which is set i.i.d Normal(0,pi/60)
 '''
 
 ##initiate container
@@ -122,7 +130,7 @@ coord_y = coord_y.flatten()
 master = np.vstack((act_speed,act_direct,coord_x,coord_y,actual_speed,actual_direct)).T
 master.shape
 
-np.savetxt('C:\\deep_SSM\\TRAINDAT.csv',master,delimiter = ',')
+np.savetxt('C:\\deep_SSM\\TRAINDAT.csv',master,delimiter = ',')  #I use Windows machine
 
 
 #stochastic system dynamics    
