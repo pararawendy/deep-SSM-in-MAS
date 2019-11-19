@@ -56,7 +56,6 @@ obs_y = mastertoy[:,3] #y-axis coordinate
 seq_length = 20 #length of each trajectory
 num_seq = 1500 #number of sequences/trajectories in training data
 
-
 #reshape the inputs as 3D tensor (seq_length,num_seq,value)
 act_speed = act_speed.reshape((-1, seq_length)).T
 act_direct = act_direct.reshape((-1, seq_length)).T
@@ -64,7 +63,6 @@ obs_x = obs_x.reshape((-1, seq_length)).T
 obs_y = obs_y.reshape((-1, seq_length)).T
 train_data = tf.stack([act_speed, act_direct, obs_x, obs_y], axis=-1)
 train_data.shape # i = time i, j = sample j, k = action k : (20, 1500, 4)
-
 
 #define a class of the model (basic, rank 0), in fact it is also an RNN cell
 class SSM(tf.keras.Model):
@@ -133,7 +131,6 @@ class SSM(tf.keras.Model):
         output = tf.concat([infer_mean, infer_logvar, trans_mean, trans_logvar, obs_mean], -1)
         return output, next_state
     
-
 #define a function for prediction, utilize tf.nn.raw_rnn API
 def SSM_model(model, inputs):
     #variables needed for loop_fn
@@ -175,9 +172,7 @@ def SSM_model(model, inputs):
     
     return [outputs, latent]
 
-
 #the loss function (negative ELBO)
-
 def loss(model, inputs):
     outputs, _ = SSM_model(model, inputs) #only RNN output is needed for computing loss
     
@@ -227,7 +222,7 @@ model = SSM() #model instantiation
 train_loss_results = []
 global_step = tf.Variable(0)
 
-#train for 150 epochs
+#train the model
 learning_rate = 0.005
 optimizer = tf.train.AdamOptimizer(learning_rate)
 
@@ -246,13 +241,12 @@ for epoch in np.arange(0,200): #train for 200 epochs
     if epoch % 5 == 0:
         print('Epoch: {},      Loss: {}'.format(epoch, train_loss_results[epoch]))
 
-
 #save model weights
 model.save_weights('C:\\deep_SSM\\model_rank0.h5')
 
 
 '''
-creating latent variables for the second in phase
+creating latent variables used in the second phase
 '''
 
 #producing latent variables as new features for the next phase (environment state)
