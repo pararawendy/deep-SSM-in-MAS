@@ -3,7 +3,7 @@ Code implementation of deep state-space models (SSM) in multi-agent-systems (MAS
 
 REV Outline:
 1. main readme should only contain very brief introduction
-2. have many readme for details
+2. have many readme for details, referred as list in the end part of the main readme
 
 to do list:
 1. add two .py files for using the model (to predict environment [rank2] and policy [rank0]),
