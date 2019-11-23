@@ -243,6 +243,9 @@ for epoch in np.arange(0,150): #train for 150 epochs
     
     if epoch % 5 == 0:
         print('REP 1, Epoch: {},      Loss: {}'.format(epoch, train_loss_results[epoch]))
+        
+#save model weights
+model.save_weights('C:\\deep_SSM\\model_phase2.h5')
 
 
 
