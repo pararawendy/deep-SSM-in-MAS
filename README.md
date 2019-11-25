@@ -49,7 +49,7 @@ We parameterize each distribution ![equation](https://latex.codecogs.com/gif.lat
 Since we parameterize all the distributions using neural networks, ELBO maximization is now carried out through jointly tune all the neural networks parameters ![equation](https://latex.codecogs.com/gif.latex?\theta), ![equation](https://latex.codecogs.com/gif.latex?\gamma) and ![equation](https://latex.codecogs.com/gif.latex?\phi). We train all the neural networks using backpropagation algorithm.
 
 The Bayesian net of Phase 1 is given below.
-![Screenshot](phase1.png)
+![phase1](model/phase1/phase1.png)
 
 ### Phase 2
 After we finish training all neural networks in Phase 1, we are ready to work out Phase 2. In this phase, the ingredients are the sequence of environment states ![equation](https://latex.codecogs.com/gif.latex?s_{1:T}=[s_1,...,s_{T}]) and other agents' actions ![equation](https://latex.codecogs.com/gif.latex?a_{1:T}=[a_1,...,a_{T}]). Note that we can gather the sequence ![equation](https://latex.codecogs.com/gif.latex?s_{1:T}) by utilizing the inference net from Phase 1. We want to fit ![equation](https://latex.codecogs.com/gif.latex?p(a_{1:T}|s_{1:T})). Similar to Phase 1, we follow variational inference principle to proceed.
@@ -61,13 +61,13 @@ The generative graphical model in this Phase 2 is the following.
 Note that in this phase we have one categorical distribution to model the other agents' actions. As in Phase 1, we parameterize each distribution ![equation](https://latex.codecogs.com/gif.latex?p_\theta), ![equation](https://latex.codecogs.com/gif.latex?p_\gamma) and ![equation](https://latex.codecogs.com/gif.latex?q_\phi) by neural networks, such that ![equation](https://latex.codecogs.com/gif.latex?\theta), ![equation](https://latex.codecogs.com/gif.latex?\gamma) and ![equation](https://latex.codecogs.com/gif.latex?\phi) are the parameters of neural networks ![equation](https://latex.codecogs.com/gif.latex?p_\theta), ![equation](https://latex.codecogs.com/gif.latex?p_\gamma) and ![equation](https://latex.codecogs.com/gif.latex?q_\phi) respectively.
 
 Training goes very similar as Phase 1, i.e. we want to maximize the ELBO of the target joint distribution. The Bayesian net of Phase 2 is given below.
-![Screenshot](phase2.png)
+![Screenshot](model/phase2/phase2.png)
 
 ## Model Training
 
 The goal when training the models (Phase 1 and 2) are is to maximize their corresponding ELBO. By the help of parameterization trick (Kingma and Welling, 2014), we can make the ELBO of a trajectory (sequence) as a summation of T terms (T is the trajectory length). Please refer to the thesis for clarification. Eventually, we can train Phase 1 model using the following algorithm.
 
-![Screenshot](algor1.png)
+![Screenshot](model/algor1.png)
 
 Training Phase 2 goes quite similar to Phase 1 and we omit the details for brevity.
 
