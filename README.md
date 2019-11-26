@@ -1,17 +1,7 @@
 # Deep State-Space Models in Multi-Agent Systems
-Code implementation of deep state-space models (SSM) in multi-agent-systems (MAS) as proposed by [Indarjo's master thesis](https://www.universiteitleiden.nl/binaries/content/assets/science/mi/scripties/master/2018-2019/master-thesis-fin---pararawendy.pdf) (2019)
+Code implementation of deep state-space models (SSM) in multi-agent-systems (MAS) as proposed by [Indarjo's master thesis](https://www.universiteitleiden.nl/binaries/content/assets/science/mi/scripties/master/2018-2019/master-thesis-fin---pararawendy.pdf) (2019). 
 
-REV Outline:
-1. main readme should only contain very brief introduction
-2. have many readme for details, referred as list in the end part of the main readme
-
-to do list:
-1. add two .py files for using the model (to predict environment [rank2] and policy [rank0]),
-2. fix readme, at least for enough level
-3. publish
-4. add .py file for model selection
-
-![equation](https://latex.codecogs.com/gif.latex?)
+Providing a high-level view, in this repository we will use a probabilistic sequential model which belongs to the class of state-space model (see, for example, this [Fraccaro's PhD thesis](https://marcofraccaro.github.io/download/publications/fraccaro_phd_thesis.pdf) for a nice overview) to predict future observations and actions in a multi-agent system setting. As perhaps expected, the term "deep" means that we utilize neural networks as the model's skeleton/architecture.
 
 ## Problem assumptions
 We consider multi-agent systems (MAS) that consist of a controllable agent and some other agents (can be either collaborators or opponents, or both) which interact with each other. The general assumptions on the systems are as follows:
@@ -71,7 +61,11 @@ The goal when training the models (Phase 1 and 2) are is to maximize their corre
 
 Training Phase 2 goes quite similar to Phase 1 and we omit the details for brevity.
 
+## How to Navigate This Repository?
 
+1. After reading this readme, the readers might want to see the logic of the data used on the implementation. This is provided in [``data``](https://github.com/pararawendy/deep-SSM-in-MAS/tree/master/data) folder
+2. Only after that, we can start to build the model. We greet Phase 1 of the model (modelling observation) given in [``model/phase1``](https://github.com/pararawendy/deep-SSM-in-MAS/tree/master/model/phase1). We can start to build the simple version of the model, i.e. the one with diagonal covariance matrix structure of latent variable distribution. Later, we can continue to build a refined model of it (model with non-zero covariance matrix).
+3. Finally, if model training is done, we can see the model in action (how to use the model) in folder [``implementation``](https://github.com/pararawendy/deep-SSM-in-MAS/tree/master/implementation).
 
 
 
