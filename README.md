@@ -65,7 +65,8 @@ Training Phase 2 goes quite similar to Phase 1 and we omit the details for brevi
 
 1. After reading this readme, the readers might want to see the logic of the data used on the implementation. This is provided in [``data``](https://github.com/pararawendy/deep-SSM-in-MAS/tree/master/data) folder
 2. Only after that, we can start to build the model. We greet Phase 1 of the model (modelling observation) given in [``model/phase1``](https://github.com/pararawendy/deep-SSM-in-MAS/tree/master/model/phase1). We can start to build the simple version of the model, i.e. the one with diagonal covariance matrix structure of latent variable distribution. Later, we can continue to build a refined model of it (model with non-zero covariance matrix).
-3. Finally, if model training is done, we can see the model in action (how to use the model) in folder [``implementation``](https://github.com/pararawendy/deep-SSM-in-MAS/tree/master/implementation).
+3. After that, we step up to Phase 2 of the model given in [``model/phase2``](https://github.com/pararawendy/deep-SSM-in-MAS/tree/master/model/phase2), to model the opponent's action.
+4. Finally, if model training is done, we can see the model in action (how to use the model) in folder [``implementation``](https://github.com/pararawendy/deep-SSM-in-MAS/tree/master/implementation).
 
 
 
